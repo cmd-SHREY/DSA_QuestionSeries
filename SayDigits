@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+void Say_Digit(int n, string arr[]){
+
+    if(n == 0){
+        return;
+    }
+
+    int digit;
+
+    digit = n%10;
+
+    //cout << arr[digit] << " ";    Printing here will print the number in reverse so to get the actual output it is better to 
+                                    //print After the recursive calls have reached the base case as during their return
+                                    //it will print the right value
+
+    n = n/10;
+
+    Say_Digit(n,arr);
+    cout << arr[digit] << " ";
+} 
+
+int main(){
+
+    int n;
+    cin >> n;
+
+    string arr[10] = {"zero","one","two","three","four","five","six","seven","eight","nine",};
+
+    Say_Digit(n, arr);
+
+    return 0;
+}
